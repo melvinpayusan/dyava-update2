@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    DYAVA: Gallery
+{% endblock %}
+
+{% block main %}
+    <div class="spacer"></div>
+    <div class="container-fluid text-center">
+        <div class="spacer"></div>
+        {% for art in arts %}
+            <a href="{{ url_for("view_artwork", id=art.id) }}">
+                <img class="artwork-gallery" src="/static/images/{{ art.artpic }}" alt="Artwork">
+            </a>
+        {% endfor %}
+    </div>
+    <div class="spacer"></div>
+{% endblock %}

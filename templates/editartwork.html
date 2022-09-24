@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile: Edit Artwork
+{% endblock %}
+
+{% block main %}
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center text-center">
+            <div class="col-lg-auto view-artwork">
+                <img src="/static/images/{{ art.artpic }}" alt="Artwork" class="full-artwork-view shadow">
+            </div>
+            <div class="col-lg-3 shadow">
+                {% for message in get_flashed_messages() %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+                <br>
+                <h1>EDIT ARTWORK</h1>
+                <form class="row g-3" action="/edit-artwork/{{ art.id }}" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.title(class="form-control") }}
+                {{ form.type(class="form-control") }}
+                {{ form.materials(class="form-control") }}
+                {{ form.size(class="form-control") }}
+                <div class="form-check">
+                    {{ form.forsale(class="form-check-input") }}
+                    <p>Is the artwork for sale? If yes, please check the box and put the price below. If not, just leave it unchecked and the price field blank. If already sold, uncheck the box.</p>
+                </div>
+                {{ form.price(class="form-control") }}
+                {{ form.submit2(class="btn btn-primary") }}
+                </form>
+                <hr>
+                <form class="row g-3" action="/delete-artwork/{{ art.id }}" method="post">
+                    {{ form.hidden_tag() }}
+                    {{ form.submit3(class="btn btn-primary") }}
+                </form>
+                <hr>
+                    <a href="/profile" class="btn btn-primary mx-auto back-button">Back to My Profile </a>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+
+{% endblock %}

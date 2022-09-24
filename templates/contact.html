@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    DYAVA: Contact Us
+{% endblock %}
+
+{% block main %}
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="container">
+        <div class="row form-container">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6 middle text-center">
+                {% for error in form.errors %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ error }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+
+                {% with messages = get_flashed_messages(category_filter=["success"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                {% with messages = get_flashed_messages(category_filter=["error"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <h1>CONTACT US</h1>
+                <p>If you have any concerns, comments, suggestions, and other inquiries regarding DYAVA, please fill in the form below.</p>
+                <form class="row g-3" action="/contact" method="post">
+                    {{ form.hidden_tag() }}
+                    {{ form.fullname(class="form-control") }}
+                    {{ form.email(class="form-control") }}
+                    {{ form.phone(class="form-control") }}
+                    {{ form.subject(class="form-control") }}
+                    {{ form.message(class="form-control") }}
+                    {{ form.submit(class="form-control btn btn-primary") }}
+                </form>
+                <br>
+                <p>Expect a response within 1-3 days from DYAVA admin. Thank you!</a></p>
+            </div>
+            <div class="col-lg-3">
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+{% endblock %}

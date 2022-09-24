@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    DYAVA: Home
+{% endblock %}
+
+{% block main %}
+
+    <div class="spacer"></div>
+    <div class="container-fluid background text-center">
+        <div class="container">
+            {% for message in get_flashed_messages() %}
+                <div class="spacer"></div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row text-center">
+            <div class="col-xl-7 col-lg-6 d-flex justify-content-center align-items-center">
+                <div class="row text-center">
+                    <div class="col-lg-12 dyava-container d-flex justify-content-center align-items-center">
+                        <img src="/static/graphics/DYAVA Logo-06.svg" alt="DYAVA Logo" class="dyava-logo">
+                    </div>
+                <div class="row text-center">
+                    <div clas="col-lg-12 bg-danger d-flex justify-content-center align-items-center">
+                        <h1 class="tagline animate-character text-center">Feel the beauty and savor the pure bliss of Art...</h1>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+            <div class="col-xl-5 col-lg-6  d-flex justify-content-center align-items-center hand-container">
+                <img src="/static/graphics/hand-holding-brushes.png" alt="DYAVA Logo" class="hand-brush">
+            </div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="container-fluid text-center">
+        <div class="home-quote text-center mx-auto">
+            <h2>Art doesn't exist merely to entertain.</h2>
+            <hr>
+            <h5>It nourishes, captivates, motivates and strengthens community ties. DYAVA exists to support the young artists of Dimiao and inspire others through art.</h5>
+        </div>
+    </div>
+    <div class="spacer"></div>
+
+    <div class="container-lg">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10" aria-label="Slide 11"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="11" aria-label="Slide 12"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="12" aria-label="Slide 13"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="13" aria-label="Slide 14"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="1500">
+                    <img src="/static/carousel/exhibit.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/exhibit2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/exhibit3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/exhibit4.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/ribboncutting.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/ingkumhanlivepainting.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/ingkumhanlivepainting2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/ingkumhanlivepainting3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/ingkumhanmeeting.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/ingkumhanpicwithmarc.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/presidentwithmentors.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/pagcorlivepainting.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/pagcorlivepainting2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/static/carousel/pagcorlivepainting3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="spacer"></div>
+
+    <div class="home-image-container">
+        <div class="box">
+            <img src="/static/carousel/paintingexhibit.jpg">
+        </div>
+        <div class="box">
+            <img src="/static/carousel/paintingexhibit2.jpg">
+        </div>
+        <div class="box">
+            <img src="/static/carousel/paintingexhibit3.jpg">
+        </div>
+        <div class="box">
+            <img src="/static/carousel/paintingexhibit4.jpg">
+        </div>
+    </div>
+
+
+{% endblock %}
+

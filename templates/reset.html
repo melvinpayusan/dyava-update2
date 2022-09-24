@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    DYAVA: Reset Password
+{% endblock %}
+
+{% block main %}
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="container">
+        <div class="row form-container">
+            <div class="col-xl-4 col-lg-3 col-md-2">
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-8 middle">
+                {% for message in get_flashed_messages() %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+                <h1>RESET PASSWORD</h1>
+                <p>Explore your creativity by signing in as a DYAVA artist!</p>
+                <form class="row g-3" action="/reset" method="post">
+                    {{ form.hidden_tag() }}
+                    {{ form.email(class="form-control") }}
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+                <br>
+            </div>
+            <div class="col-xl-4 col-lg-3 col-md-2">
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+{% endblock %}
