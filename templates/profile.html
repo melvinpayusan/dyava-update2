@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    DYAVA: {{ current_user.firstname}} {{ current_user.middlename}} {{ current_user.lastname}}
+{% endblock %}
+
+{% block main %}
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        <div class="row text-center">
+            <div class="col-lg-6">
+                <div class="card mx-auto shadow">
+                {% for user in profile %}
+                    <div class="profile-pic-container">
+                        <img src="/static/images/{{ user.picture }}" class="card-img-top profile-picture mx-auto" alt="Profile Picture">
+                    </div>
+                    <div class="card-body name-bio">
+                        <h1 class="card-title">{{ current_user.firstname }} {{current_user.middlename }} {{ current_user.lastname }}</h1>
+                        <hr>
+                        <p class="card-text container">{{ user.bio }}</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="/uploadprofile" class="btn btn-profile btn-primary mx-auto">Upload Profile Pic</a>
+                        <a href="/update" class="btn btn-primary btn-profile mx-auto">Edit Profile</a>
+                        <a href="/uploadart" class="btn btn-primary btn-profile mx-auto">Upload Artworks</a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Art Style/Genre:  <strong>{{ user.style }}</strong></li>
+                        <li class="list-group-item">Art Medium/Materials: <strong>{{ user.medium }}</strong></li>
+                        <br>
+                        <li class="list-group-item"><h5><b>Contact Information</b></h5></li>
+                        <li class="list-group-item">Phone: <strong>{{ user.phone }}</strong></li>
+                        <li class="list-group-item">Email: <strong>{{ current_user.email }}</strong></li>
+                        <li class="list-group-item">Facebook: <strong>{{ user.facebook}}</strong></li>
+                        <li class="list-group-item">Instagram: <strong>{{ user.instagram }}</strong></li>
+                        <br>
+                        <li class="list-group-item"><h5><b>Personal Information</b></h5></li>
+                        <li class="list-group-item">Address:: <strong>{{ user.address }}</strong></li>
+                        <li class="list-group-item">Gender: <strong>{{ user.gender }}</strong></li>
+                        <li class="list-group-item">Age: <strong>{{ user.age }}</strong></li>
+                        <li class="list-group-item">Date of Birth: <strong>{{ user.birthday }}</strong></li>
+                        <li class="list-group-item">Place of Birth: <strong>{{ user.birthplace }}</strong></li>
+                        <li class="list-group-item">Civil Status: <strong>{{ user.civilstatus }}</strong></li>
+                        <li class="list-group-item">Nationality: <strong>{{ user.nationality }}</strong></li>
+                        <li class="list-group-item">Citizenship: <strong>{{ user.citizenship }}</strong></li>
+                        <li class="list-group-item">Religion: <strong>{{ user.religion }}</strong></li>
+                        <li class="list-group-item">Height: <strong>{{ user.height }}</strong></li>
+                        <li class="list-group-item">Weight: <strong>{{ user.weight }}</strong></li>
+
+                        <br>
+                        <li class="list-group-item"><h5><b>Educational Background</b></h5></li>
+                        <li class="list-group-item">Elementary: <strong>{{ user.elementary }}</strong></li>
+                        <li class="list-group-item">Secondary: <strong>{{ user.secondary }}</strong></li>
+                        <li class="list-group-item">Tertiary/Vocational: <strong>{{ user.tertiary }}</strong></li>
+
+                    </ul>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6" ">
+                {% for art in arts %}
+                    <a href="{{ url_for("edit_artwork", id=art.id) }}"><img class="artwork" src="/static/images/{{ art.artpic }}"></a>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+{% endblock %}
+

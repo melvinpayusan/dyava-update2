@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    DYAVA: Shop
+{% endblock %}
+
+{% block main %}
+    <div class="spacer"></div>
+    <div class="container-fluid">
+        <div class="spacer"></div>
+        <div class="row justify-content-center">
+            {% for art in arts %}
+                <div class="card shop-container shadow text-center">
+                    <a href="{{ url_for("view_artwork_shop", id=art.id) }}">
+                        <img src="/static/images/{{ art.artpic }}" class="card-img-top" alt="Artwork">
+                        <div class="card-body card-body-shop">
+                            <h5 class="card-title">{{ art.title }}</h5>
+                            <p class="card-text">by: {{ art.art.firstname }} {{ art.art.middlename }} {{ art.art.lastname }}</p>
+                            <p class="price">Price: <b>&#8369;{{ art.price if art.price }}</b></p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="spacer"></div>
+{% endblock %}

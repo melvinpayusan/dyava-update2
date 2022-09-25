@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ art.art.firstname }}'s Artwork
+{% endblock %}
+
+{% block main %}
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center text-center">
+            <div class="col-lg-auto view-artwork">
+                <img src="/static/images/{{ art.artpic }}" alt="Artwork" class="full-artwork-view shadow">
+            </div>
+            <div class="col-lg-3 artwork-col shadow">
+                <table class="table table-striped my-auto mx-auto">
+                    <tbody>
+                        <tr>
+                            <td><h5>Title:</h5></td>
+                            <td><h5><b>{{ art.title }}</b></h5></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Artist:</h5></td>
+                            <td><h5><a href="{{ url_for("view_profile", id=art.art.id) }}"><b>{{ art.art.firstname }} {{ art.art.middlename }} {{ art.art.lastname }}</b></a></h5></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Style/Genre:</h5></td>
+                            <td><h5><b>{{ art.type }}</b></h5></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Medium:</h5></td>
+                            <td><h5><b>{{ art.materials }}</b></h5></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Size:</h5></td>
+                            <td><h5><b>{{ art.size }}</b></h5></td>
+                        </tr>
+                        {% if art.price %}
+                            <tr>
+                                <td><h5>Price:</h5></td>
+                                <td><h5><b>&#8369;{{ art.price if art.price }}</b></h5></td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                {% if art.price %}
+                <hr>
+                <div>
+                    <p>Interested to buy this artwork? Please contact the artist directly using the contact information listed in <a href="{{ url_for("view_profile", id=art.art.id) }}">{{ art.art.firstname }}'s profile.</a></p>
+                </div>
+                <hr>
+                {% endif %}
+                <a href="{{ url_for("view_profile", id=art.art.id) }}" class="btn btn-primary mx-auto back-button">Back to {{ art.art.firstname }}'s Profile</a>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+
+{% endblock %}
